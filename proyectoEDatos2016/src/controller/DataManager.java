@@ -11,6 +11,7 @@ import java.util.Calendar;
 import java.util.List;
 import model.ModelCompany;
 import model.Request;
+import view.ViewMenu;
 import yahoofinance.Stock;
 import yahoofinance.YahooFinance;
 import yahoofinance.histquotes.HistoricalQuote;
@@ -24,7 +25,7 @@ public class DataManager {
     public static final String INTC = "INTC";
     public static final String BABA = "BABA";
     public static final String TSLA = "TSLA";
-    public static final String AIRPA = "AIR.PA";
+    public static final String AIR = "AIR";
     public static final String YHOO = "YHOO";
     public static final String AAPL = "AAPL";
     public static final String GOOG = "GOOG";
@@ -143,25 +144,6 @@ public class DataManager {
         this.requestModel = requestModel;
     }
     
-    public static void main(String[] args) throws IOException {
-        Request requestModel = new Request();
-        requestModel.setCompanyID(DataManager.AAPL);
-        requestModel.setInitialDay(12);
-        requestModel.setEndDay(15);
-        requestModel.setInitialMonth(04);
-        requestModel.setEndMonth(11);
-        requestModel.setInitialYear(2014);
-        requestModel.setEndYear(2015);
-        requestModel.setIndex(DataManager.INDEX_MIN);
-        requestModel.setSortMethod(DataManager.QUICK_METHOD);
-        
-        DataManager dataManager = new DataManager(requestModel);
-        dataManager.run();
-        ArrayList<ModelCompany> companyArray = dataManager.getModelCompany();
-        
-        for(int j=0; j<companyArray.size(); j++){
-            System.out.println(companyArray.get(j).getIndex());
-        }
-    }
+    
     
 }
