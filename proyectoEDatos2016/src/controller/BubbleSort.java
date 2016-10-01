@@ -31,13 +31,26 @@ public class BubbleSort {
     
     public void burbujaMenor(){
         int i, j;
-        double aux;
+        ModelCompany aux;
         for(i=1;i<arrayCompanies.size();i++){
             for(j=arrayCompanies.size()-1;j>=i;j--)
                 if (arrayCompanies.get(j-1).getIndex() > arrayCompanies.get(j).getIndex()){ //Intercambio los elementos
-                    aux = arrayCompanies.get(j-1).getIndex();
-                    arrayCompanies.get(j-1).setIndex(arrayCompanies.get(j).getIndex());
-                    arrayCompanies.get(j).setIndex(aux);
+                    aux = arrayCompanies.get(j-1);
+                    arrayCompanies.set(j-1, arrayCompanies.get(j));
+                    arrayCompanies.set(j, aux);
+                }        
+        }
+    }
+    
+    public void burbujaMayor(){
+        int i, j;
+        ModelCompany aux;
+        for(i=1;i<arrayCompanies.size();i++){
+            for(j=arrayCompanies.size()-1;j>=i;j--)
+                if (arrayCompanies.get(j-1).getIndex() <= arrayCompanies.get(j).getIndex()){ //Intercambio los elementos
+                    aux = arrayCompanies.get(j-1);
+                    arrayCompanies.set(j-1, arrayCompanies.get(j));
+                    arrayCompanies.set(j, aux);
                 }        
         }
     }

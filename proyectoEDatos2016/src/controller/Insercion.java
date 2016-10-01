@@ -31,17 +31,31 @@ public class Insercion {
     
     
     
-    public void insercion(){
+    public void insercionMin(){
         int i,k;
-        double aux;
+        ModelCompany aux;
         for(i=1;i<arrayCompanies.size();i++){
-            aux = arrayCompanies.get(i).getIndex();
+            aux = arrayCompanies.get(i);
             k = i-1;
-            while(k>=0 && aux<arrayCompanies.get(k).getIndex()){
-                arrayCompanies.get(k+1).setIndex(arrayCompanies.get(k).getIndex());
+            while(k>=0 && aux.getIndex() < arrayCompanies.get(k).getIndex()){
+                arrayCompanies.set(k+1, arrayCompanies.get(k));
                 k--;
             }
-            arrayCompanies.get(k+1).setIndex(aux);
+            arrayCompanies.set(k+1, aux);
+        }
+    }
+    
+    public void insercionMax(){
+        int i,k;
+        ModelCompany aux;
+        for(i=1;i<arrayCompanies.size();i++){
+            aux = arrayCompanies.get(i);
+            k = i-1;
+            while(k>=0 && aux.getIndex() >= arrayCompanies.get(k).getIndex()){
+                arrayCompanies.set(k+1, arrayCompanies.get(k));
+                k--;
+            }
+            arrayCompanies.set(k+1, aux);
         }
     }
     

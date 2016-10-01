@@ -81,32 +81,57 @@ public class DataManager {
         }
     }
     
-    public void sortListCompanies(ArrayList<ModelCompany> companyList){
-        String quick = DataManager.QUICK_METHOD;
-        
-        
+    public void sortListCompanies(){
         switch(this.requestModel.getSortMethod()){
             case DataManager.QUICK_METHOD:
-                new QuickSort(companyList).quickSort();
+                if(this.requestModel.getIndex().equals(DataManager.INDEX_MIN)){
+                    new QuickSort(this.companyList).quickSortMin();
+                }else{
+                    //Quicksort Max
+                }
+                
                 break;
                 
             case DataManager.BURBUJA_METHOD:
-                new BubbleSort(companyList).burbujaMenor();
+                if(this.requestModel.getIndex().equals(DataManager.INDEX_MIN)){
+                    new BubbleSort(this.companyList).burbujaMenor();
+                }else{
+                    new BubbleSort(this.companyList).burbujaMayor();
+                }
                 break;
+                
             case DataManager.SHELL_METHOD:
-                new ShellSort(companyList).shellsort();
+                if(this.requestModel.getIndex().equals(DataManager.INDEX_MIN)){
+                    new ShellSort(this.companyList).shellsortMin();
+                }else{
+                    new ShellSort(this.companyList).shellsortMax();
+                }
                 break;
+                
             case DataManager.MERGE_METHOD:
-                new MergeSort().ordenaMerge(companyList);
+                if(this.requestModel.getIndex().equals(DataManager.INDEX_MIN)){
+                    this.companyList = new MergeSort().ordenaMergeMin(this.companyList);
+                }else{
+                    this.companyList = new MergeSort().ordenaMergeMax(this.companyList);
+                }
                 break;
             case DataManager.INSERCION_METHOD:
-                new Insercion(companyList).insercion();
+                if(this.requestModel.getIndex().equals(DataManager.INDEX_MIN)){
+                    new Insercion(this.companyList).insercionMin();
+                }else{
+                    new Insercion(this.companyList).insercionMax();
+                }
+                
                 break;
         }
     }
     
-    public ArrayList<ModelCompany> getModelCompany() throws IOException{
+    public void run() throws IOException{
         verifyRequest();
+        sortListCompanies();
+    }
+    
+    public ArrayList<ModelCompany> getModelCompany() throws IOException{
         return this.companyList;
     }
 
@@ -131,8 +156,8 @@ public class DataManager {
         requestModel.setSortMethod(DataManager.QUICK_METHOD);
         
         DataManager dataManager = new DataManager(requestModel);
+        dataManager.run();
         ArrayList<ModelCompany> companyArray = dataManager.getModelCompany();
-        dataManager.sortListCompanies(companyArray);
         
         for(int j=0; j<companyArray.size(); j++){
             System.out.println(companyArray.get(j).getIndex());

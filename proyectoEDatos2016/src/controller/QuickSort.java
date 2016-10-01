@@ -30,7 +30,7 @@ public class QuickSort {
     
     
     
-    public void quickSort(){
+    public void quickSortMin(){
         int ini,fin;
         int pos;
         ArrayList pilaMenor = new ArrayList(), pilaMayor = new ArrayList();
@@ -39,7 +39,7 @@ public class QuickSort {
         while(!pilaMenor.isEmpty()){
             ini = (Integer)pilaMenor.remove(pilaMenor.size()-1);
             fin = (Integer)pilaMayor.remove(pilaMayor.size()-1);
-            pos = posicionaQuickSort(ini,fin);
+            pos = posicionaQuickSortMin(ini,fin);
             if(ini<pos-1){
                 pilaMenor.add(ini);
                 pilaMayor.add(pos-1);
@@ -51,9 +51,9 @@ public class QuickSort {
         }
     }
     
-    public int posicionaQuickSort(int ini, int fin){
+    public int posicionaQuickSortMin(int ini, int fin){
         int pos,izq,der;
-        double aux;
+        ModelCompany aux;
         boolean band;
         izq = ini;
         der = fin;
@@ -66,18 +66,18 @@ public class QuickSort {
             if(pos == der){
                 band = false;
             }else{
-                aux = arrayCompany.get(pos).getIndex();
-                arrayCompany.get(pos).setIndex(der);
-                arrayCompany.get(der).setIndex(aux);
+                aux = arrayCompany.get(pos);
+                arrayCompany.set(pos, arrayCompany.get(der));
+                arrayCompany.set(der, aux);
                 pos = der;
                 while(arrayCompany.get(pos).getIndex() >= arrayCompany.get(izq).getIndex() && pos!=izq)
                     izq++;
                 if(pos == izq){
                     band = false;
                 }else{
-                    aux = arrayCompany.get(pos).getIndex();
-                    arrayCompany.get(pos).setIndex(arrayCompany.get(izq).getIndex());
-                    arrayCompany.get(izq).setIndex(aux);
+                    aux = arrayCompany.get(pos);
+                    arrayCompany.set(pos,arrayCompany.get(izq));
+                    arrayCompany.set(izq, aux);
                     pos = izq;
                 }
             }
@@ -85,6 +85,8 @@ public class QuickSort {
         }
         return  pos;
     }
+
+    
 
     
     public void imprimir(){

@@ -31,9 +31,9 @@ public class ShellSort {
     
     
     
-    public void shellsort(){
+    public void shellsortMin(){
         int intervalo, i;
-        double aux;
+        ModelCompany aux;
         boolean band;
         intervalo = arrayCompanies.size();
         while(intervalo>1){
@@ -42,11 +42,35 @@ public class ShellSort {
             while (band){
                 band = false;
                 i=0;
-                while((intervalo+i)< arrayCompanies.size()){
-                    if (arrayCompanies.get(i).getIndex()>arrayCompanies.get(i+intervalo).getIndex()){
-                        aux = arrayCompanies.get(i).getIndex();
-                        arrayCompanies.get(i).setIndex(arrayCompanies.get(i+intervalo).getIndex());
-                        arrayCompanies.get(i+intervalo).setIndex(aux);
+                while((intervalo+i) < arrayCompanies.size()){
+                    if (arrayCompanies.get(i).getIndex() > arrayCompanies.get(i+intervalo).getIndex()){
+                        aux = arrayCompanies.get(i);
+                        arrayCompanies.set(i, arrayCompanies.get(i+intervalo));
+                        arrayCompanies.set(i+intervalo, aux);
+                        band = true;
+                    }
+                    i++;
+                }
+            }       
+        }
+    }
+    
+    public void shellsortMax(){
+        int intervalo, i;
+        ModelCompany aux;
+        boolean band;
+        intervalo = arrayCompanies.size();
+        while(intervalo>1){
+            intervalo /= 2; //equivale a intervalo = intervalo/2;
+            band = true;
+            while (band){
+                band = false;
+                i=0;
+                while((intervalo+i) < arrayCompanies.size()){
+                    if (arrayCompanies.get(i).getIndex() < arrayCompanies.get(i+intervalo).getIndex()){
+                        aux = arrayCompanies.get(i);
+                        arrayCompanies.set(i, arrayCompanies.get(i+intervalo));
+                        arrayCompanies.set(i+intervalo, aux);
                         band = true;
                     }
                     i++;
