@@ -88,7 +88,7 @@ public class DataManager {
                 if(this.requestModel.getIndex().equals(DataManager.INDEX_MIN)){
                     new QuickSort(this.companyList).quickSortMin();
                 }else{
-                    //Quicksort Max
+                    new QuickSort(this.companyList).quickSortMax();
                 }
                 
                 break;

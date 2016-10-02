@@ -15,6 +15,7 @@ import view.ViewMenu;
 public class Main {
     public static void main(String[] args) {
         ViewMenu viewMenu = new ViewMenu();
+        viewMenu.setTitle("Ordenamiento");
         viewMenu.setVisible(true);
         controllerMenu control = new controllerMenu(viewMenu);
     }

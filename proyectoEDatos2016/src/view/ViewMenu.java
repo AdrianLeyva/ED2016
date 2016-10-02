@@ -27,7 +27,7 @@ public class ViewMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        GroupRadioButton = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         ComboboxEmpresas = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
@@ -82,10 +82,8 @@ public class ViewMenu extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableEmpresas);
 
-        buttonGroup1.add(radioMaximo);
         radioMaximo.setText("Maximo");
 
-        buttonGroup1.add(radioMinimo);
         radioMinimo.setText("Minimo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -93,9 +91,10 @@ public class ViewMenu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
@@ -122,10 +121,7 @@ public class ViewMenu extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(radioMaximo)
                                 .addGap(18, 18, 18)
-                                .addComponent(radioMinimo))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(radioMinimo)))))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -206,9 +202,9 @@ public class ViewMenu extends javax.swing.JFrame {
     public javax.swing.JComboBox<String> ComboboxEmpresas;
     public com.toedter.calendar.JDateChooser DateChooserFinal;
     public com.toedter.calendar.JDateChooser DateChooserInicial;
+    private javax.swing.ButtonGroup GroupRadioButton;
     public javax.swing.JButton btnOrdenar;
     public javax.swing.JButton btnRefrescar;
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
