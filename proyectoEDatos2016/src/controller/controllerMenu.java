@@ -45,7 +45,7 @@ public class controllerMenu implements ActionListener{
     public void actionPerformed(ActionEvent e){
         
         
-            if(e.getSource()==view.btnOrdenar && validacionFecha()){
+            if(e.getSource()==view.btnOrdenar && validacionDatos()){
                 
                 try {
                     //Obtenemos las fechas seleccionadas
@@ -165,14 +165,7 @@ public class controllerMenu implements ActionListener{
                     //Instanciamos el metodo final
                     DataManager dataManager = new DataManager(requestModel);
                     dataManager.run();
-                    ArrayList<ModelCompany> companyArray = dataManager.getModelCompany();
-                    
-                    //se imprime los resultados ya ordenados
-                    for(int j=0; j<companyArray.size(); j++){
-                        System.out.println(companyArray.get(j).getIndex() + " " +
-                                            companyArray.get(j).getDate() + " " +
-                                            companyArray.get(j).getCompanyName());
-                    }   
+                    ArrayList<ModelCompany> companyArray = dataManager.getModelCompany();  
                     
                     //Llenando la tabla con los datos ordenados
                     if(view.radioMaximo.isSelected()){
@@ -195,7 +188,7 @@ public class controllerMenu implements ActionListener{
                     }
                     
                 } catch (IOException ex) {
-                    Logger.getLogger(controllerMenu.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(view, "Error de conexión", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
             
@@ -215,17 +208,30 @@ public class controllerMenu implements ActionListener{
             }
     }
     
-    public Boolean validacionFecha(){
+    public Boolean validacionDatos(){
         Date today = new Date();
         SimpleDateFormat formatoFecha=new SimpleDateFormat("yyyy-MM-dd");
-        int añoInicial =Integer.parseInt(formatoFecha.format(view.DateChooserInicial.getDate()).substring(0, 4)) ;
+        int añoInicial;
+        
+        try{
+            añoInicial = Integer.parseInt(formatoFecha.format(view.DateChooserInicial.getDate()).substring(0, 4)) ;
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(view, "Seleccione fechas válidas" , "Fechas no válidas" , JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
         
         if(view.DateChooserInicial.getDate().before(today) &&
             view.DateChooserFinal.getDate().after(view.DateChooserInicial.getDate()) &&
+            view.DateChooserFinal.getDate().before(today) &&
             añoInicial > 1966){
-            return true;
-            // && 
-            // )
+            if((view.radioMinimo.isSelected() || view.radioMaximo.isSelected()))
+                return true;
+            
+            else{
+                JOptionPane.showMessageDialog(view, "Seleccione máximo o mínmo" , "Datos faltantes" , JOptionPane.ERROR_MESSAGE);
+                return false; 
+            }   
         }
         else {
             JOptionPane.showMessageDialog(view, "Seleccione fechas válidas" , "Fechas no válidas" , JOptionPane.ERROR_MESSAGE);

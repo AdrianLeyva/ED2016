@@ -82,8 +82,10 @@ public class ViewMenu extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableEmpresas);
 
+        GroupRadioButton.add(radioMaximo);
         radioMaximo.setText("Maximo");
 
+        GroupRadioButton.add(radioMinimo);
         radioMinimo.setText("Minimo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -260,6 +260,9 @@
     </Container>
     <Component class="javax.swing.JRadioButton" name="radioMaximo">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="GroupRadioButton"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Maximo"/>
       </Properties>
       <AuxValues>
@@ -268,6 +271,9 @@
     </Component>
     <Component class="javax.swing.JRadioButton" name="radioMinimo">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="GroupRadioButton"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Minimo"/>
       </Properties>
       <AuxValues>
