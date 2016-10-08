@@ -20,7 +20,24 @@ public class Request {
     private int initialYear;
     private int endYear;
     private String SortMethod;
-    private String index;
+    private String indexMin;
+    private String indexMax;
+
+    public String getIndexMin() {
+        return indexMin;
+    }
+
+    public void setIndexMin(String indexMin) {
+        this.indexMin = indexMin;
+    }
+
+    public String getIndexMax() {
+        return indexMax;
+    }
+
+    public void setIndexMax(String indexMax) {
+        this.indexMax = indexMax;
+    }
 
     public String getCompanyID() {
         return companyID;
@@ -40,11 +57,11 @@ public class Request {
     }
 
     public String getIndex() {
-        return index;
+        return indexMin;
     }
 
     public void setIndex(String index) {
-        this.index = index;
+        this.indexMin = index;
     }
 
     public int getInitialDay() {
@@ -94,6 +111,8 @@ public class Request {
     public void setEndYear(int endYear) {
         this.endYear = endYear;
     }
+    
+    
 
    
     

@@ -61,7 +61,7 @@ public class QuickSort {
         band = true;
         
         while(band){
-            while(arrayCompany.get(pos).getIndex() <= arrayCompany.get(der).getIndex() && pos!=der)
+            while(arrayCompany.get(pos).getIndexMin() <= arrayCompany.get(der).getIndexMin() && pos!=der)
                 der--;
             if(pos == der){
                 band = false;
@@ -70,7 +70,7 @@ public class QuickSort {
                 arrayCompany.set(pos, arrayCompany.get(der));
                 arrayCompany.set(der, aux);
                 pos = der;
-                while(arrayCompany.get(pos).getIndex() >= arrayCompany.get(izq).getIndex() && pos!=izq)
+                while(arrayCompany.get(pos).getIndexMin() >= arrayCompany.get(izq).getIndexMin() && pos!=izq)
                     izq++;
                 if(pos == izq){
                     band = false;
@@ -117,7 +117,7 @@ public class QuickSort {
         band = true;
         
         while(band){
-            while(arrayCompany.get(pos).getIndex() >= arrayCompany.get(der).getIndex() && pos!=der)
+            while(arrayCompany.get(pos).getIndexMax() >= arrayCompany.get(der).getIndexMax() && pos!=der)
                 der--;
             if(pos == der){
                 band = false;
@@ -126,7 +126,7 @@ public class QuickSort {
                 arrayCompany.set(pos, arrayCompany.get(der));
                 arrayCompany.set(der, aux);
                 pos = der;
-                while(arrayCompany.get(pos).getIndex() <= arrayCompany.get(izq).getIndex() && pos!=izq)
+                while(arrayCompany.get(pos).getIndexMax() <= arrayCompany.get(izq).getIndexMax() && pos!=izq)
                     izq++;
                 if(pos == izq){
                     band = false;

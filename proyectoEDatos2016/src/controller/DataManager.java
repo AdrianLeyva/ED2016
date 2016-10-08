@@ -69,13 +69,15 @@ public class DataManager {
             if(requestModel.getIndex().equals(DataManager.INDEX_MIN)){
                 ModelCompany modelCompany = new ModelCompany();
                 modelCompany.setCompanyName(googleHistQuotes.get(i).getSymbol());
-                modelCompany.setIndex(googleHistQuotes.get(i).getLow().doubleValue());
+                modelCompany.setIndexMin(googleHistQuotes.get(i).getLow().doubleValue());
+                modelCompany.setIndexMax(googleHistQuotes.get(i).getHigh().doubleValue());
                 modelCompany.setDate(googleHistQuotes.get(i).getDate().getTime().toString());
                 companyList.add(modelCompany);
             }else{
                 ModelCompany modelCompany = new ModelCompany();
                 modelCompany.setCompanyName(googleHistQuotes.get(i).getSymbol());
-                modelCompany.setIndex(googleHistQuotes.get(i).getHigh().doubleValue());
+                modelCompany.setIndexMin(googleHistQuotes.get(i).getLow().doubleValue());
+                modelCompany.setIndexMax(googleHistQuotes.get(i).getHigh().doubleValue());
                 modelCompany.setDate(googleHistQuotes.get(i).getDate().getTime().toString());
                 companyList.add(modelCompany);
             }

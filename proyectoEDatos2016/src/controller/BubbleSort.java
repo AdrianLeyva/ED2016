@@ -34,7 +34,7 @@ public class BubbleSort {
         ModelCompany aux;
         for(i=1;i<arrayCompanies.size();i++){
             for(j=arrayCompanies.size()-1;j>=i;j--)
-                if (arrayCompanies.get(j-1).getIndex() > arrayCompanies.get(j).getIndex()){ //Intercambio los elementos
+                if (arrayCompanies.get(j-1).getIndexMin() > arrayCompanies.get(j).getIndexMin()){ //Intercambio los elementos
                     aux = arrayCompanies.get(j-1);
                     arrayCompanies.set(j-1, arrayCompanies.get(j));
                     arrayCompanies.set(j, aux);
@@ -47,7 +47,7 @@ public class BubbleSort {
         ModelCompany aux;
         for(i=1;i<arrayCompanies.size();i++){
             for(j=arrayCompanies.size()-1;j>=i;j--)
-                if (arrayCompanies.get(j-1).getIndex() <= arrayCompanies.get(j).getIndex()){ //Intercambio los elementos
+                if (arrayCompanies.get(j-1).getIndexMax() <= arrayCompanies.get(j).getIndexMax()){ //Intercambio los elementos
                     aux = arrayCompanies.get(j-1);
                     arrayCompanies.set(j-1, arrayCompanies.get(j));
                     arrayCompanies.set(j, aux);

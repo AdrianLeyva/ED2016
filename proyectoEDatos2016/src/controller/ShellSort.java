@@ -43,7 +43,7 @@ public class ShellSort {
                 band = false;
                 i=0;
                 while((intervalo+i) < arrayCompanies.size()){
-                    if (arrayCompanies.get(i).getIndex() > arrayCompanies.get(i+intervalo).getIndex()){
+                    if (arrayCompanies.get(i).getIndexMin() > arrayCompanies.get(i+intervalo).getIndexMin()){
                         aux = arrayCompanies.get(i);
                         arrayCompanies.set(i, arrayCompanies.get(i+intervalo));
                         arrayCompanies.set(i+intervalo, aux);
@@ -67,7 +67,7 @@ public class ShellSort {
                 band = false;
                 i=0;
                 while((intervalo+i) < arrayCompanies.size()){
-                    if (arrayCompanies.get(i).getIndex() < arrayCompanies.get(i+intervalo).getIndex()){
+                    if (arrayCompanies.get(i).getIndexMax() < arrayCompanies.get(i+intervalo).getIndexMax()){
                         aux = arrayCompanies.get(i);
                         arrayCompanies.set(i, arrayCompanies.get(i+intervalo));
                         arrayCompanies.set(i+intervalo, aux);

@@ -11,7 +11,24 @@ package model;
  */
 public class ModelCompany {
     private String companyName;
-    private double index;
+    private double indexMin;
+    private double indexMax;
+
+    public double getIndexMin() {
+        return indexMin;
+    }
+
+    public void setIndexMin(double indexMin) {
+        this.indexMin = indexMin;
+    }
+
+    public double getIndexMax() {
+        return indexMax;
+    }
+
+    public void setIndexMax(double indexMax) {
+        this.indexMax = indexMax;
+    }
     private String date;
 
     public ModelCompany() {
@@ -27,11 +44,11 @@ public class ModelCompany {
     }
 
     public double getIndex() {
-        return index;
+        return indexMin;
     }
 
     public void setIndex(double index) {
-        this.index = index;
+        this.indexMin = index;
     }
 
     

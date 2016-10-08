@@ -37,7 +37,7 @@ public class MergeSort {
         ArrayList<ModelCompany> lista = new ArrayList<>();
         while (!L1.isEmpty() && !L2.isEmpty()){
             
-            if (L1.get(0).getIndex() < L2.get(0).getIndex()){
+            if (L1.get(0).getIndexMin() < L2.get(0).getIndexMin()){
                 lista.add(L1.get(0));
                 L1.remove(0);
                 if(L1.isEmpty()){
@@ -80,7 +80,7 @@ public class MergeSort {
         ArrayList<ModelCompany> lista = new ArrayList<>();
         while (!L1.isEmpty() && !L2.isEmpty()){
             
-            if (L1.get(0).getIndex() >= L2.get(0).getIndex()){
+            if (L1.get(0).getIndexMax() >= L2.get(0).getIndexMax()){
                 lista.add(L1.get(0));
                 L1.remove(0);
                 if(L1.isEmpty()){

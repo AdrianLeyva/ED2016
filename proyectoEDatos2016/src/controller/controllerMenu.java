@@ -171,8 +171,8 @@ public class controllerMenu implements ActionListener{
                     if(view.radioMaximo.isSelected()){
                         for(int i=0; i<companyArray.size();i++){
                         filas[0] = companyName;
-                        filas[1] = companyArray.get(i).getIndex();
-                        filas[2] = null;
+                        filas[1] = companyArray.get(i).getIndexMax();
+                        filas[2] = companyArray.get(i).getIndexMin();
                         filas[3] = companyArray.get(i).getDate();
                         tableModel.addRow(filas);
                         }
@@ -180,8 +180,8 @@ public class controllerMenu implements ActionListener{
                     else if(view.radioMinimo.isSelected()){
                         for(int i=0; i<companyArray.size();i++){
                         filas[0] = companyName;
-                        filas[1] = null; 
-                        filas[2] = companyArray.get(i).getIndex();
+                        filas[1] = companyArray.get(i).getIndexMax();
+                        filas[2] = companyArray.get(i).getIndexMin();
                         filas[3] = companyArray.get(i).getDate();
                         tableModel.addRow(filas);
                         }

@@ -37,7 +37,7 @@ public class Insercion {
         for(i=1;i<arrayCompanies.size();i++){
             aux = arrayCompanies.get(i);
             k = i-1;
-            while(k>=0 && aux.getIndex() < arrayCompanies.get(k).getIndex()){
+            while(k>=0 && aux.getIndexMin() < arrayCompanies.get(k).getIndexMin()){
                 arrayCompanies.set(k+1, arrayCompanies.get(k));
                 k--;
             }
@@ -51,7 +51,7 @@ public class Insercion {
         for(i=1;i<arrayCompanies.size();i++){
             aux = arrayCompanies.get(i);
             k = i-1;
-            while(k>=0 && aux.getIndex() >= arrayCompanies.get(k).getIndex()){
+            while(k>=0 && aux.getIndexMax() >= arrayCompanies.get(k).getIndexMax()){
                 arrayCompanies.set(k+1, arrayCompanies.get(k));
                 k--;
             }
